@@ -1,3 +1,19 @@
+# Weekend Project by Group 5
+
+Abdul Samad (sam_d#6030)
+Salman Naseer (SalmanNaseer#7095)
+Jano Bokuchava (jboku8#0228)
+Ihab Heb (Lord ۞ ʜев#4470)
+Nikhil (phoenikx#5624)
+Neha#1693
+
+Link to report:
+<a href="Link to report:
+https://docs.google.com/document/d/1YYpLBRwRwiok4Tqb5IpP5MrIuzIAiUKSiligECXMQtY/edit?usp=sharing
+"> https://docs.google.com/document/d/1YYpLBRwRwiok4Tqb5IpP5MrIuzIAiUKSiligECXMQtY/edit?usp=sharing </a>
+
+
+
 # Advanced Sample Hardhat Project
 
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
