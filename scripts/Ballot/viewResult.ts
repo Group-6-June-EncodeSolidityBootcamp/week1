@@ -25,8 +25,6 @@ async function main() {
   }
   if (process.argv.length < 3) throw new Error("Ballot address missing");
   const ballotAddress = process.argv[2];
-  if (process.argv.length < 4) throw new Error("Proposal index missing");
-  const votedProposalIndex = Number(process.argv[3]);
   console.log(
     `Attaching ballot contract interface to address ${ballotAddress}`
   );
@@ -36,12 +34,23 @@ async function main() {
     signer
   ) as Ballot;
 
-  const votedProposal = await ballotContract.proposals(votedProposalIndex);
-  console.log(`Voting ${votedProposalIndex} ${ethers.utils.parseBytes32String(votedProposal.name)} ...`);
-  const tx = await ballotContract.vote(votedProposalIndex);
-  console.log("Awaiting confirmations");
-  await tx.wait();
-  console.log(`Voting done! Transaction Hash: ${tx.hash}`);
+  console.log("Getting the winner...");
+  const winner = await ballotContract.winnerName();
+  console.log(`And the winner is ${ethers.utils.parseBytes32String(winner)}!`)
+
+  console.log("All results:");
+  let i = 0;
+  while (true) {
+    try {
+      const proposal = await ballotContract.proposals(i);
+      console.log(`${i}. ${ethers.utils.parseBytes32String(proposal.name)} got ${proposal.voteCount} votes`);
+      i += 1;
+    } catch (error) {
+      // error when the array is complete
+      break;
+    }
+  }
+
 }
 
 main().catch((error) => {
