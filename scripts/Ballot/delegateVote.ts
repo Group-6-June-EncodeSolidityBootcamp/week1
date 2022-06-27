@@ -42,7 +42,7 @@ async function main() {
     console.log("The delegate is not in voters list : ",e);
   }
   const tx = await ballotContract.delegate(delegateAddress);
-  console.log("Awaiting confirmations");
+  console.log(`Awaiting confirmations - delegating vote of ${wallet.address} to ${delegateAddress}`);
   await tx.wait();
   console.log(`Delegation done! Transaction Hash: ${tx.hash}`);
 }
